@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asva-wifi-analyzer"
+version = "0.1.0"
+description = "Reproducible Wi-Fi signal surveys, analysis and coverage maps"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "LicenseRef-ASVA-Noncommercial-1.0"
+license-files = ["LICENSE"]
+authors = [{name = "ASVA Consulting"}]
+dependencies = ["numpy>=1.26,<3", "matplotlib>=3.8,<4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "mypy>=1.15,<2", "build>=1.2,<2"]
+docs = ["sphinx>=8,<9", "pydata-sphinx-theme>=0.16,<1", "sphinx-gallery>=0.19,<1"]
+
+[project.scripts]
+wifi-analyzer = "wifi_analyzer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
