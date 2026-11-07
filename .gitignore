@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+outputs/
+surveys/
+docs/_build/
+docs/gallery/
+.gradle/
+local.properties
+*.apk
+.idea/
+docs/sg_execution_times.rst
